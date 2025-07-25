@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Task1_eva.Models.Category>
+
+<h2>Category List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Category Order</th>
+            <th>Is Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CatName</td>
+                    <td>@item.CatOrder</td>
+                    <td>@(item.IsDeleted ? "No" : "Yes")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="3">No categories available.</td></tr>
+        }
+    </tbody>
+</table>
